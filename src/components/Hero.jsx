@@ -77,7 +77,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import heroVideo from "../../public/Hero.mp4";
+import heroVideo from "../Hero.mp4";
 
 const Hero = () => {
   const texts = [
