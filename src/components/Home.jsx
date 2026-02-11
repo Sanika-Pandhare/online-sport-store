@@ -1,32 +1,29 @@
 // 
-
 import Hero from "./Hero";
 import { useNavigate } from "react-router-dom";
+
+// Import Images
+import shoe from "../assets/products/shoe.jpg";
+import pant1 from "../assets/products/pant1.jpg";
+import trophy from "../assets/products/trophy.jpg";
+import jogger from "../assets/products/jogger.jpg";
+import tshirt from "../assets/products/tshirt.jpg";
+import shorts from "../assets/products/shorts.jpg";
+import printshirt from "../assets/products/printshirt.jpg";
+import boyshort from "../assets/products/boyshort.jpg";
 
 const Home = () => {
   const navigate = useNavigate();
 
-  const products = [
-    {
-      name: "Running Shoes",
-      image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
-      category: "shoes",
-    },
-    {
-      name: "Sports T-Shirt",
-      image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
-      category: "clothing",
-    },
-    {
-      name: "Cricket Bat",
-      image: "https://images.unsplash.com/photo-1599058917212-d750089bc07e",
-      category: "accessories",
-    },
-    {
-      name: "Football",
-      image: "https://images.unsplash.com/photo-1518091043644-c1d4457512c6",
-      category: "accessories",
-    },
+  const productNames = [
+    "Sports Shoes",
+    "Track Pants",
+    "Trophies",
+    "Joggers",
+    "Sports T-Shirts",
+    "Sports Shorts",
+    "Printing Shirts",
+    "Boys Sports Shorts",
   ];
 
   return (
@@ -35,87 +32,108 @@ const Home = () => {
       {/* HERO SECTION */}
       <Hero />
 
-      {/* VIJAY SPORT INFO SECTION */}
-      <section className="py-20 px-6 md:px-16 bg-gradient-to-r from-orange-50 to-white">
+      {/* ABOUT SECTION */}
+      <section className="py-16 px-6 md:px-16 bg-gradient-to-r from-orange-50 to-white">
         <div className="max-w-7xl mx-auto text-center">
-
-          <h2 className="text-3xl md:text-5xl font-bold mb-8 text-gray-800">
-            What Makes Vijay Sport Special? 🔥
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gray-800">
+            Welcome to Vijay Sports, Kole 🏆
           </h2>
 
-          <p className="text-lg text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
-            Vijay Sport offers a complete range of sports and fitness products 
-            including Kids Sports Shoes, College Shoes, Night Pants, T-Shirts, 
-            Gym Protein, Premium Perfume, Smart Watches, Cricket Bats, Football, 
-            and all essential sports equipment. Everything you need for training, 
-            fitness, and daily active life is available in one place.
+          <p className="text-gray-600 max-w-4xl mx-auto text-lg leading-relaxed">
+            Vijay Sports provides all types of sports materials including Cricket Kits,
+            Football, Volleyball, Boxing Equipment, Gym Accessories, Running Shoes,
+            Track Pants, T-Shirts, Trophies, and School Sports Equipment.
+            We deliver premium quality at affordable prices.
           </p>
-
-          <div className="grid md:grid-cols-3 gap-8">
-
-            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
-              <h3 className="text-xl font-semibold mb-4 text-orange-500">
-                Our Products
-              </h3>
-              <p className="text-gray-600">
-                From stylish sports shoes to performance gym protein and durable 
-                cricket bats, we provide high-quality products designed for comfort, 
-                strength, and long-lasting use.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
-              <h3 className="text-xl font-semibold mb-4 text-orange-500">
-                Why We Are Popular
-              </h3>
-              <p className="text-gray-600">
-                Vijay Sport is popular because of premium quality, affordable prices, 
-                fast delivery, and trusted customer satisfaction. Athletes and 
-                students love our stylish and durable products.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition">
-              <h3 className="text-xl font-semibold mb-4 text-orange-500">
-                Best for Daily Life
-              </h3>
-              <p className="text-gray-600">
-                Running Shoes, Sports T-Shirts, Night Pants, Smart Watches, and 
-                Gym Protein are perfect for daily workouts, college, sports practice, 
-                and maintaining a healthy lifestyle.
-              </p>
-            </div>
-
-          </div>
         </div>
       </section>
 
-      {/* FEATURED PRODUCTS SECTION */}
-      <section className="py-20 px-6 md:px-16 bg-white">
+      {/* OUR AVAILABLE PRODUCTS (ONLY NAMES) */}
+      <section className="py-16 px-6 md:px-16 bg-white">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          Featured Products
+          Our Available Products
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {products.map((p, i) => (
+          {productNames.map((product, index) => (
             <div
-              key={i}
-              onClick={() => navigate(`/category/${p.category}`)}
-              className="bg-gray-50 rounded-xl shadow hover:shadow-lg cursor-pointer transition"
+              key={index}
+              className="bg-gray-100 rounded-xl shadow hover:shadow-xl transition duration-300 p-6 text-center"
             >
-              <div className="h-48 overflow-hidden rounded-t-xl">
-                <img
-                  src={p.image}
-                  alt={p.name}
-                  className="h-full w-full object-cover hover:scale-105 transition duration-300"
-                />
-              </div>
-
-              <div className="p-4">
-                <h3 className="font-semibold">{p.name}</h3>
-              </div>
+              <p className="text-lg md:text-xl font-semibold text-gray-700">
+                {product}
+              </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* PRODUCT IMAGE GALLERY (SIZE INCREASED) */}
+      <section className="py-20 px-6 md:px-16 bg-gray-50">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-14">
+          Our Product Gallery
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+
+          {[shoe, pant1, trophy, jogger, tshirt, shorts, printshirt, boyshort].map(
+            (img, index) => (
+              <div
+                key={index}
+                className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300"
+              >
+                <img
+                  src={img}
+                  alt="product"
+                  className="w-full 
+                             h-72 
+                             sm:h-80 
+                             md:h-96 
+                             object-cover 
+                             hover:scale-105 
+                             transition duration-500"
+                />
+              </div>
+            )
+          )}
+
+        </div>
+      </section>
+
+      {/* PRINTING SHIRT & BOYS SHORTS SECTION */}
+      <section className="py-16 px-6 md:px-16 bg-white">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+
+          <div className="bg-gray-50 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
+            <img
+              src={printshirt}
+              alt="Printing Shirt"
+              className="w-full h-80 object-cover rounded-xl"
+            />
+            <h3 className="text-2xl font-semibold mt-4">
+              Premium Printing Shirts
+            </h3>
+            <p className="text-gray-600 mt-2">
+              Customized sports printing shirts available for schools,
+              colleges, tournaments, and teams.
+            </p>
+          </div>
+
+          <div className="bg-gray-50 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
+            <img
+              src={boyshort}
+              alt="Boys Shorts"
+              className="w-full h-80 object-cover rounded-xl"
+            />
+            <h3 className="text-2xl font-semibold mt-4">
+              Boys Sports Shorts
+            </h3>
+            <p className="text-gray-600 mt-2">
+              Comfortable, lightweight and durable sports shorts available
+              in multiple colors and sizes.
+            </p>
+          </div>
+
         </div>
       </section>
 

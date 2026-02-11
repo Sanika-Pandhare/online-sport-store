@@ -12,8 +12,8 @@ const Footer = () => {
           </p>
 
           <div className="mt-4 space-y-2 text-sm text-gray-400">
-            <p>📧 vijaysports@gmail.com</p>
-            <p>📞 +91 9876543210</p>
+            <p>📧 vijaypandhare45@gmail.com</p>
+            <p>📞 +91 8554083358</p>
           </div>
         </div>
 
