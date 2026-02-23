@@ -1,0 +1,140 @@
+/* ===== Common Layout ===== */
+
+.admin-container {
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.top-navbar {
+  background-color: #1f1f1f;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.admin-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Settings */
+.settings-container {
+  position: relative;
+}
+
+.settings {
+  cursor: pointer;
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  background: white;
+  border: 1px solid #ccc;
+  width: 100px;
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
+/* Menu Section */
+.menu-section {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  flex-wrap: wrap;
+}
+
+.menu-item {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 8px 12px;
+}
+
+.menu-item:hover {
+  color: #4CAF50;
+}
+
+.active {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+/* ===== Add Product Section ===== */
+
+.add-product-container {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.add-product-container h2 {
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+/* Grid Layout */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.category-card {
+  background-color: #f5f5f5;
+  padding: 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  background-color: #4CAF50;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* ===== Mobile Responsive ===== */
+
+@media (max-width: 600px) {
+  .top-navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .menu-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .category-card {
+    padding: 20px;
+  }
+}
