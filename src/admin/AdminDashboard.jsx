@@ -79,7 +79,7 @@ function AdminDashboard() {
       {/* Menu Section */}
       <div className="menu-section">
 
-        <div className="menu-item">🏠 Home</div>
+        <div className="menu-item">Home</div>
 
         <div className="menu-item">All Products</div>
 
