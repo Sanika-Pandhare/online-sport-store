@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-black via-gray-900 to-black text-white mt-20">
@@ -33,7 +35,17 @@ const Footer = () => {
         <div>
           <h3 className="font-semibold mb-4">Company</h3>
           <ul className="space-y-2 text-gray-400 text-sm">
-            <li>About Us</li>
+
+            {/* ✅ This opens Contact.jsx */}
+            <li>
+              <Link
+                to="/contact"
+                className="hover:text-orange-400 transition cursor-pointer"
+              >
+                About Us
+              </Link>
+            </li>
+
             <li>Careers</li>
             <li>Contact</li>
             <li>Privacy Policy</li>
@@ -43,25 +55,15 @@ const Footer = () => {
 
         {/* DOWNLOAD + SOCIAL */}
         <div>
-          <h3 className="font-semibold mb-4">Get Our App</h3>
+          
 
-          <div className="flex gap-3 mb-4">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-              className="h-10 cursor-pointer"
-            />
-            <img
-              src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-              className="h-10 cursor-pointer"
-            />
-          </div>
+          
 
-          <h3 className="font-semibold mb-2">Follow Us</h3>
+          <h3 className="font-semibold mb-2">Follow Us On</h3>
           <div className="flex gap-4 text-xl">
             <span className="cursor-pointer hover:text-blue-500">🌐</span>
             <span className="cursor-pointer hover:text-pink-500">📸</span>
-            <span className="cursor-pointer hover:text-blue-400">🐦</span>
-            <span className="cursor-pointer hover:text-red-500">▶️</span>
+            
           </div>
         </div>
       </div>
@@ -75,3 +77,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
