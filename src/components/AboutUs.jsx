@@ -1,6 +1,6 @@
 import ownerImage from "../assets/owner.jpg";
 
-const Contact = () => {
+const AboutUs = () => {
   return (
     <div className="bg-[#e3e7e6] pt-[10px] pb-16">
       
@@ -71,4 +71,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default AboutUs;

@@ -10,12 +10,20 @@ const Header = () => {
 
       {/* 🔹 TOP BAR */}
       <div className="flex justify-end items-center px-6 py-1 text-sm font-medium text-black bg-gray-50">
-        <span className="cursor-pointer hover:underline">Help</span>
+
+        {/* ✅ Contact Added Here */}
+        <span
+          onClick={() => navigate("/contact")}
+          className="cursor-pointer hover:text-purple-600 transition"
+        >
+          Contact
+        </span>
+
         <span className="mx-3">|</span>
 
         <span
           onClick={() => navigate("/signup")}
-          className="cursor-pointer hover:underline"
+          className="cursor-pointer hover:text-purple-600 transition"
         >
           Sign Up
         </span>
@@ -24,7 +32,7 @@ const Header = () => {
 
         <span
           onClick={() => navigate("/login")}
-          className="cursor-pointer hover:underline"
+          className="cursor-pointer hover:text-purple-600 transition"
         >
           Log In
         </span>
@@ -68,13 +76,12 @@ const Header = () => {
         <div className="flex items-center gap-6">
 
           <Link
-            to="/contact"
+            to="/about"
             className="px-5 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full"
           >
             About Us
           </Link>
 
-          {/* CART BUTTON */}
           <div
             onClick={() => navigate("/cart")}
             className="flex items-center gap-2 cursor-pointer hover:text-purple-600 transition"
@@ -94,4 +101,3 @@ const Header = () => {
 };
 
 export default Header;
-

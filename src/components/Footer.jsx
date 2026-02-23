@@ -39,7 +39,7 @@ const Footer = () => {
             {/* ✅ This opens Contact.jsx */}
             <li>
               <Link
-                to="/contact"
+                to="/about"
                 className="hover:text-orange-400 transition cursor-pointer"
               >
                 About Us

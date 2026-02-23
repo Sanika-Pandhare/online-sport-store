@@ -1,11 +1,22 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import menuData from "./menuData";
 
 const MegaMenu = () => {
   const [activeCategory, setActiveCategory] = useState(null);
-  const categories = Object.keys(menuData);
+  const navigate = useNavigate();
 
-  // Group products by subCategory for mega menu columns
+  const categories = [
+    "Home",
+    "Shop",
+    "Team Sports",
+    "Athletics",
+    "Boxing",
+    "Fitness",
+    "Indoor Games",
+    "Custom Printing"
+  ];
+
   const groupBySubCategory = (products) => {
     return products.reduce((acc, product) => {
       if (!acc[product.subCategory]) {
@@ -21,18 +32,27 @@ const MegaMenu = () => {
       style={{ position: "relative" }}
       onMouseLeave={() => setActiveCategory(null)}
     >
-      {/* TOP NAV */}
+      {/* 🔹 TOP NAV */}
       <nav style={styles.nav}>
         {categories.map((cat) => (
           <div
             key={cat}
-            onMouseEnter={() => setActiveCategory(cat)}
             style={{
               ...styles.navItem,
               borderBottom:
                 activeCategory === cat
-                  ? "2px solid black"
+                  ? "2px solid orange"
                   : "2px solid transparent"
+            }}
+            onMouseEnter={() => {
+              if (menuData[cat]) {
+                setActiveCategory(cat);
+              } else {
+                setActiveCategory(null);
+              }
+            }}
+            onClick={() => {
+              if (cat === "Home") navigate("/");
             }}
           >
             {cat}
@@ -40,7 +60,7 @@ const MegaMenu = () => {
         ))}
       </nav>
 
-      {/* DROPDOWN */}
+      {/* 🔹 DROPDOWN */}
       {activeCategory && menuData[activeCategory] && (
         <div style={styles.dropdown}>
           <div style={styles.dropdownContainer}>
@@ -72,7 +92,6 @@ const styles = {
     backgroundColor: "#fff",
     borderBottom: "1px solid #eee",
     fontFamily: "Helvetica, Arial, sans-serif",
-    fontSize: "16px",
     fontWeight: "500",
     position: "relative",
     zIndex: 100
@@ -81,7 +100,8 @@ const styles = {
   navItem: {
     cursor: "pointer",
     paddingBottom: "6px",
-    transition: "0.2s ease",
+    fontSize: "16px",
+    transition: "all 0.2s ease"
   },
 
   dropdown: {
@@ -119,8 +139,7 @@ const styles = {
     marginBottom: "12px",
     color: "#555",
     fontSize: "14px",
-    cursor: "pointer",
-    transition: "0.2s",
+    cursor: "pointer"
   }
 };
 
