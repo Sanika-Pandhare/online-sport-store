@@ -57,9 +57,9 @@ const Home = () => {
           {productNames.map((product, index) => (
             <div
               key={index}
-              className="bg-gray-100 rounded-xl shadow hover:shadow-xl transition duration-300 p-6 text-center"
+              className="bg-stone-200 rounded-xl shadow hover:shadow-lg transition duration-300 p-6 text-center"
             >
-              <p className="text-lg md:text-xl font-semibold text-gray-700">
+              <p className="text-lg md:text-xl font-semibold text-gray-1000">
                 {product}
               </p>
             </div>

@@ -4,7 +4,7 @@ const ContactPage = () => {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <h1 style={styles.title}>Contact Vijay Sports</h1>
+        <h1 style={styles.title}>Contact <b>Vijay Sports</b></h1>
 
         <div style={styles.details}>
           <p><strong>Owner:</strong> Mr. Vijay Pandhare</p>
