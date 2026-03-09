@@ -27,6 +27,15 @@ const MegaMenu = () => {
     }, {});
   };
 
+  const groupedData =
+    activeCategory && menuData[activeCategory]
+      ? groupBySubCategory(menuData[activeCategory])
+      : null;
+
+  const columnCount = groupedData
+    ? Object.keys(groupedData).length
+    : 0;
+
   return (
     <div
       style={{ position: "relative" }}
@@ -61,12 +70,15 @@ const MegaMenu = () => {
       </nav>
 
       {/* 🔹 DROPDOWN */}
-      {activeCategory && menuData[activeCategory] && (
+      {groupedData && (
         <div style={styles.dropdown}>
-          <div style={styles.dropdownContainer}>
-            {Object.entries(
-              groupBySubCategory(menuData[activeCategory])
-            ).map(([subCat, items]) => (
+          <div
+            style={{
+              ...styles.dropdownContainer,
+              gridTemplateColumns: `repeat(${columnCount}, 1fr)`
+            }}
+          >
+            {Object.entries(groupedData).map(([subCat, items]) => (
               <div key={subCat} style={styles.column}>
                 <h4 style={styles.columnTitle}>{subCat}</h4>
                 {items.map((item, index) => (
@@ -108,19 +120,19 @@ const styles = {
     position: "absolute",
     top: "60px",
     left: 0,
-    width: "100vw",
+    width: "100%",
     backgroundColor: "#f5f5f5",
-    padding: "50px 120px",
+    padding: "50px 0",
     boxShadow: "0 8px 25px rgba(0,0,0,0.08)",
     zIndex: 1000
   },
 
   dropdownContainer: {
     display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)",
     gap: "60px",
     maxWidth: "1200px",
-    margin: "0 auto"
+    margin: "0 auto",   // ✅ THIS centers content
+    textAlign: "left"
   },
 
   column: {

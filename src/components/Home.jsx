@@ -1,4 +1,3 @@
-// 
 import Hero from "./Hero";
 import { useNavigate } from "react-router-dom";
 
@@ -40,7 +39,7 @@ const Home = () => {
           </h2>
 
           <p className="text-gray-600 max-w-4xl mx-auto text-lg leading-relaxed">
-            Vijay Sports provides all types of sports materials including Cricket Kits,
+            <b>Vijay Sports</b> provides all types of sports materials including Cricket Kits,
             Football, Volleyball, Boxing Equipment, Gym Accessories, Running Shoes,
             Track Pants, T-Shirts, Trophies, and School Sports Equipment.
             We deliver premium quality at affordable prices.
@@ -68,14 +67,13 @@ const Home = () => {
         </div>
       </section>
 
-      {/* PRODUCT IMAGE GALLERY (SIZE INCREASED) */}
+      {/* PRODUCT IMAGE GALLERY (UNCHANGED) */}
       <section className="py-20 px-6 md:px-16 bg-gray-50">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-14">
           Our Product Gallery
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
-
           {[shoe, pant1, trophy, jogger, tshirt, shorts, printshirt, boyshort].map(
             (img, index) => (
               <div
@@ -96,11 +94,10 @@ const Home = () => {
               </div>
             )
           )}
-
         </div>
       </section>
 
-      {/* PRINTING SHIRT & BOYS SHORTS SECTION */}
+      {/* PRINTING SHIRT & BOYS SHORTS SECTION (UNCHANGED) */}
       <section className="py-16 px-6 md:px-16 bg-white">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
 

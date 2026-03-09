@@ -83,6 +83,7 @@ const Header = () => {
           </Link>
 
           <div
+          
             onClick={() => navigate("/cart")}
             className="flex items-center gap-2 cursor-pointer hover:text-purple-600 transition"
           >
