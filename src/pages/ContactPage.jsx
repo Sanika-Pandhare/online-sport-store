@@ -4,7 +4,7 @@ const ContactPage = () => {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <h1 style={styles.title}>Contact Vijay Sports</h1>
+        <h1 style={styles.title}>Contact <b>Vijay Sports</b></h1>
 
         <div style={styles.details}>
           <p><strong>Owner:</strong> Mr. Vijay Pandhare</p>
@@ -67,7 +67,7 @@ const styles = {
     marginTop: "25px",
     marginBottom: "10px",
     fontSize: "20px",
-    color: "#444"
+    color: "#201c1c"
   },
 
   details: {

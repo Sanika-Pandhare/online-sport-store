@@ -1,101 +1,104 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/vijay-logo.png";
 import MegaMenu from "./navigation/MegaMenu";
+import "./Header.css";
 
 const Header = () => {
   const navigate = useNavigate();
+  const [activeCategory, setActiveCategory] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = () => {
+    if (searchQuery.trim() !== "") {
+      navigate(`/search?q=${searchQuery}`);
+    }
+  };
+
+  const categories = [
+    "Cricket",
+    "Team Sports",
+    "Athletics",
+    "Boxing",
+    "Fitness",
+    "Training",
+    "Indoor Games",
+    "Accessories"
+  ];
 
   return (
-    <header className="bg-white border-b relative">
+    <header
+      className="header-container"
+      onMouseLeave={() => setActiveCategory(null)}
+    > 
 
       {/* 🔹 TOP BAR */}
-      <div className="flex justify-end items-center px-6 py-1 text-sm font-medium text-black bg-gray-50">
-
-        {/* ✅ Contact Added Here */}
-        <span
-          onClick={() => navigate("/contact")}
-          className="cursor-pointer hover:text-purple-600 transition"
-        >
-          Contact
-        </span>
-
-        <span className="mx-3">|</span>
-
-        <span
-          onClick={() => navigate("/signup")}
-          className="cursor-pointer hover:text-purple-600 transition"
-        >
-          Sign Up
-        </span>
-
-        <span className="mx-3">|</span>
-
-        <span
-          onClick={() => navigate("/login")}
-          className="cursor-pointer hover:text-purple-600 transition"
-        >
-          Log In
-        </span>
+      <div className="topbar">
+        <span onClick={() => navigate("/contact")}>Contact</span>
+        <span>|</span>
+        <span onClick={() => navigate("/signup")}>Sign Up</span>
+        <span>|</span>
+        <span onClick={() => navigate("/login")}>Log In</span>
       </div>
 
       {/* 🔹 MAIN NAVBAR */}
-      <div className="flex items-center justify-between px-6 py-3">
+      <div className="navbar">
 
-        {/* Logo + Store Name */}
-        <div
-          className="flex items-center gap-3 cursor-pointer"
-          onClick={() => navigate("/")}
-        >
-          <img
-            src={logo}
-            alt="logo"
-            className="w-12 h-12 rounded-full object-cover"
+        {/* 🔥 LOGO */}
+        <div className="logo" onClick={() => navigate("/")}>
+          <img src={logo} alt="logo" />
+          <span className="shop-name">
+            <span className="blue">VIJAY </span>
+            <span className="yellow">SPORTS</span>
+          </span>
+        </div>
+
+        {/* 🔍 SEARCH */}
+        <div className="search-box">
+          <span onClick={handleSearch} className="search-icon">🔍</span>
+          <input
+            type="text"
+            placeholder="Search products..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleSearch()}
           />
-          <h1 className="text-2xl font-bold">
-            <span className="text-blue-600">VIJAY</span>
-            <span className="text-yellow-500">SPORTS</span>
-          </h1>
         </div>
 
-        {/* SEARCH BAR */}
-        <div className="flex justify-center flex-1">
-          <div className="relative w-[420px]">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm">
-              🔍
-            </span>
-
-            <input
-              type="text"
-              placeholder="Search products..."
-              className="w-full pl-9 pr-4 py-2 rounded-lg bg-gray-100 text-sm focus:outline-none"
-            />
-          </div>
-        </div>
-
-        {/* RIGHT SIDE BUTTONS */}
-        <div className="flex items-center gap-6">
-
-          <Link
-            to="/about"
-            className="px-5 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full"
+        {/* 🔹 RIGHT SIDE */}
+        <div className="nav-right">
+          <button
+            className="about-btn"
+            onClick={() => navigate("/about")}
           >
             About Us
-          </Link>
+          </button>
 
-          <div
-          
-            onClick={() => navigate("/cart")}
-            className="flex items-center gap-2 cursor-pointer hover:text-purple-600 transition"
-          >
-            <span>🛒</span>
-            <span>Cart</span>
-          </div>
-
+          <span className="icon" onClick={() => navigate("/cart")}>
+            🛒
+          </span>
         </div>
+
       </div>
 
-      {/* 🔹 CATEGORY MEGA MENU */}
-      <MegaMenu />
+      {/* 🔹 CATEGORY BAR */}
+      <div className="category-bar">
+        {categories.map((cat) => (
+          <span
+            key={cat}
+            className="category-item"
+            onMouseEnter={() => setActiveCategory(cat)}
+          >
+            {cat}
+          </span>
+        ))}
+      </div>
+
+      {/* 🔹 MEGA MENU */}
+      <MegaMenu
+        activeCategory={activeCategory}
+        setActiveCategory={setActiveCategory}
+      />
 
     </header>
   );

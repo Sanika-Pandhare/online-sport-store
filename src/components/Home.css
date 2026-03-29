@@ -1,39 +1,63 @@
+/* 🔥 HERO SECTION */
 .home {
   position: relative;
-  height: 80vh;
+  height: 85vh;
   overflow: hidden;
 }
 
+/* 🔥 VIDEO / IMAGE */
 .hero-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(60%); /* dark overlay effect */
 }
 
+/* 🔥 CONTENT CENTER */
 .hero-content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: #fff;
   text-align: center;
-  animation: fadeUp 1.5s ease;
+  animation: fadeUp 1.2s ease;
 }
 
+/* 🔥 HEADING */
 .hero-content h1 {
-  font-size: 48px;
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
 }
 
+/* 🔥 SUBTEXT */
+.hero-content p {
+  font-size: 18px;
+  color: #e5e5e5;
+}
+
+/* 🔥 BUTTON (NIKE STYLE) */
 .hero-content button {
-  margin-top: 15px;
-  padding: 12px 30px;
-  font-size: 16px;
-  background: orange;
+  margin-top: 20px;
+  padding: 12px 28px;
+  font-size: 14px;
+  background: #fff;
+  color: #111;
   border: none;
-  border-radius: 6px;
+  border-radius: 25px;
   cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
+.hero-content button:hover {
+  background: #111;
+  color: #fff;
+}
+
+/* 🔥 ANIMATION */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -42,5 +66,35 @@
   to {
     opacity: 1;
     transform: translate(-50%, -50%);
+  }
+}
+
+/* 🔥 SECTION SPACING */
+section {
+  width: 100%;
+}
+
+/* 🔥 IMAGE HOVER EFFECT (GLOBAL) */
+img {
+  transition: transform 0.4s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+/* 🔥 RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .hero-content button {
+    padding: 10px 20px;
+    font-size: 13px;
   }
 }

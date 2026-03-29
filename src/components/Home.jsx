@@ -1,7 +1,7 @@
 import Hero from "./Hero";
 import { useNavigate } from "react-router-dom";
 
-// Import Images
+// Images
 import shoe from "../assets/products/shoe.jpg";
 import pant1 from "../assets/products/pant1.jpg";
 import trophy from "../assets/products/trophy.jpg";
@@ -14,121 +14,125 @@ import boyshort from "../assets/products/boyshort.jpg";
 const Home = () => {
   const navigate = useNavigate();
 
-  const productNames = [
-    "Sports Shoes",
-    "Track Pants",
-    "Trophies",
-    "Joggers",
-    "Sports T-Shirts",
-    "Sports Shorts",
-    "Printing Shirts",
-    "Boys Sports Shorts",
+  const products = [
+    { name: "Sports Shoes", image: shoe },
+    { name: "Track Pants", image: pant1 },
+    { name: "Trophies", image: trophy },
+    { name: "Joggers", image: jogger },
+    { name: "Sports T-Shirts", image: tshirt },
+    { name: "Sports Shorts", image: shorts },
+    { name: "Printing Shirts", image: printshirt },
+    { name: "Boys Sports Shorts", image: boyshort },
   ];
 
   return (
-    <div>
+    <div className="bg-white">
 
-      {/* HERO SECTION */}
+      {/* 🔥 HERO */}
       <Hero />
 
-      {/* ABOUT SECTION */}
-      <section className="py-16 px-6 md:px-16 bg-gradient-to-r from-orange-50 to-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gray-800">
-            Welcome to Vijay Sports, Kole 🏆
+      {/* 🔥 ABOUT */}
+      <section className="max-w-6xl mx-auto py-24 px-6 text-center">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          Welcome to Vijay Sports
+        </h2>
+
+        <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+          Your one-stop destination for premium sports equipment, apparel, and accessories.
+          Built for performance, designed for style.
+        </p>
+      </section>
+
+      {/* 🔥 FEATURED PRODUCTS */}
+      <section className="bg-gray-50 py-24">
+        <div className="max-w-7xl mx-auto px-6">
+
+          <h2 className="text-3xl md:text-4xl font-semibold mb-12">
+            Featured Products
           </h2>
 
-          <p className="text-gray-600 max-w-4xl mx-auto text-lg leading-relaxed">
-            <b>Vijay Sports</b> provides all types of sports materials including Cricket Kits,
-            Football, Volleyball, Boxing Equipment, Gym Accessories, Running Shoes,
-            Track Pants, T-Shirts, Trophies, and School Sports Equipment.
-            We deliver premium quality at affordable prices.
-          </p>
-        </div>
-      </section>
-
-      {/* OUR AVAILABLE PRODUCTS (ONLY NAMES) */}
-      <section className="py-16 px-6 md:px-16 bg-white">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          Our Available Products
-        </h2>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
-          {productNames.map((product, index) => (
-            <div
-              key={index}
-              className="bg-gray-100 rounded-xl shadow hover:shadow-xl transition duration-300 p-6 text-center"
-            >
-              <p className="text-lg md:text-xl font-semibold text-gray-700">
-                {product}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* PRODUCT IMAGE GALLERY (UNCHANGED) */}
-      <section className="py-20 px-6 md:px-16 bg-gray-50">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-14">
-          Our Product Gallery
-        </h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
-          {[shoe, pant1, trophy, jogger, tshirt, shorts, printshirt, boyshort].map(
-            (img, index) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {products.map((item, index) => (
               <div
                 key={index}
-                className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300"
+                onClick={() => navigate("/categories")}
+                className="group cursor-pointer"
               >
-                <img
-                  src={img}
-                  alt="product"
-                  className="w-full 
-                             h-72 
-                             sm:h-80 
-                             md:h-96 
-                             object-cover 
-                             hover:scale-105 
-                             transition duration-500"
-                />
+                <div className="overflow-hidden rounded-2xl bg-white shadow-md">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-72 object-cover group-hover:scale-110 transition duration-500"
+                  />
+                </div>
+
+                <h3 className="mt-4 text-sm font-medium text-gray-800 group-hover:text-black">
+                  {item.name}
+                </h3>
               </div>
-            )
-          )}
+            ))}
+          </div>
+
         </div>
       </section>
 
-      {/* PRINTING SHIRT & BOYS SHORTS SECTION (UNCHANGED) */}
-      <section className="py-16 px-6 md:px-16 bg-white">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      {/* 🔥 EXPLORE COLLECTION */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
 
-          <div className="bg-gray-50 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-14 text-center">
+            Explore Collection
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {products.map((item, index) => (
+              <div key={index} className="overflow-hidden rounded-2xl group">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-80 object-cover group-hover:scale-110 transition duration-500"
+                />
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* 🔥 HIGHLIGHT SECTION */}
+      <section className="bg-gray-50 py-24">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10">
+
+          <div className="bg-white rounded-2xl shadow-md overflow-hidden group">
             <img
               src={printshirt}
               alt="Printing Shirt"
-              className="w-full h-80 object-cover rounded-xl"
+              className="w-full h-72 object-cover group-hover:scale-105 transition duration-500"
             />
-            <h3 className="text-2xl font-semibold mt-4">
-              Premium Printing Shirts
-            </h3>
-            <p className="text-gray-600 mt-2">
-              Customized sports printing shirts available for schools,
-              colleges, tournaments, and teams.
-            </p>
+            <div className="p-6">
+              <h3 className="text-xl font-semibold">
+                Custom Printing Shirts
+              </h3>
+              <p className="text-gray-600 mt-2">
+                Design your own jerseys for teams and events.
+              </p>
+            </div>
           </div>
 
-          <div className="bg-gray-50 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
+          <div className="bg-white rounded-2xl shadow-md overflow-hidden group">
             <img
               src={boyshort}
               alt="Boys Shorts"
-              className="w-full h-80 object-cover rounded-xl"
+              className="w-full h-72 object-cover group-hover:scale-105 transition duration-500"
             />
-            <h3 className="text-2xl font-semibold mt-4">
-              Boys Sports Shorts
-            </h3>
-            <p className="text-gray-600 mt-2">
-              Comfortable, lightweight and durable sports shorts available
-              in multiple colors and sizes.
-            </p>
+            <div className="p-6">
+              <h3 className="text-xl font-semibold">
+                Comfortable Sports Shorts
+              </h3>
+              <p className="text-gray-600 mt-2">
+                Lightweight and breathable for maximum comfort.
+              </p>
+            </div>
           </div>
 
         </div>
