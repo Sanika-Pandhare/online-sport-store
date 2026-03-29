@@ -67,7 +67,7 @@ const styles = {
     marginTop: "25px",
     marginBottom: "10px",
     fontSize: "20px",
-    color: "#444"
+    color: "#201c1c"
   },
 
   details: {

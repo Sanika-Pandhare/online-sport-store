@@ -1,0 +1,101 @@
+/* 🔹 MAIN BACKGROUND */
+.about-container {
+  background: #e3e7e6;
+  padding: 20px 0 60px;
+}
+
+/* WRAPPER */
+.about-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 0;
+}
+
+/* GRID */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 0 40px;
+}
+
+/* LEFT */
+.about-left {
+  display: flex;
+  justify-content: center;
+}
+
+/* CARD */
+.owner-card {
+  width: 420px;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+/* IMAGE */
+.owner-img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+}
+
+/* NAME */
+.owner-name {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #111;
+}
+
+/* ROLE */
+.owner-role {
+  text-align: center;
+  color: #555;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+/* RIGHT SIDE */
+.about-right {
+  padding: 0 40px;
+}
+
+/* TITLE */
+.about-title {
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #0f766e;
+}
+
+/* HEADING */
+.about-heading {
+  font-size: 34px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 25px;
+  line-height: 1.3;
+}
+
+/* TEXT */
+.about-text {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* INFO */
+.about-info {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #444;
+}
+
+.about-info span {
+  font-weight: 600;
+}

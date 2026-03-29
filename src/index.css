@@ -1,3 +1,40 @@
-@import "tailwindcss";
+/* 🔥 TAILWIND SETUP */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* 🔥 GOOGLE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
+/* 🔥 GLOBAL RESET + FONT */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+  color: #111;
+}
+
+/* 🔥 LINKS */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 🔥 SCROLLBAR (optional but professional look) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}

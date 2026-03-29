@@ -21,6 +21,7 @@ function Categories() {
   return (
     <div className="categories-page">
 
+
       <h1 className="categories-title">Shop by Category</h1>
 
       <div className="categories-grid">
@@ -40,3 +41,6 @@ function Categories() {
 }
 
 export default Categories;
+
+export default Categories;
+
