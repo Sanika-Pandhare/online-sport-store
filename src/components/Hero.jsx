@@ -1,93 +1,63 @@
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
-  const texts = [
-    "Play Strong. Win Big 🏆",
-    "Premium Sports Gear",
-    "Built For Champions",
-    "Train Hard. Stay Fit."
-  ];
-
-  const [index, setIndex] = useState(0);
-
-  // Change text every 4 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % texts.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const navigate = useNavigate();
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-[90vh] overflow-hidden">
 
-      {/* Background Video */}
+      {/* VIDEO BACKGROUND */}
       <video
         autoPlay
         loop
         muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 w-full h-full object-cover scale-105"
       >
         <source src="/Hero.mp4" type="video/mp4" />
       </video>
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+      {/* GRADIENT OVERLAY (MORE PREMIUM LOOK) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
 
-        {/* Animated Heading */}
-        <motion.h1
-          key={index}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 
-                     mix-blend-difference text-white 
-                     drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]"
-        >
-          {texts[index]}
-        </motion.h1>
+      {/* CONTENT */}
+      <div className="relative z-10 flex flex-col justify-center h-full px-6 md:px-16 max-w-7xl">
 
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="text-sm sm:text-lg md:text-2xl font-semibold 
-                     max-w-2xl mb-8 
-                     mix-blend-difference text-white
-                     drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]"
-        >
-          Vijay Sport – Your Complete Sports Destination
-        </motion.p>
+        <p className="text-yellow-400 font-semibold mb-3 tracking-wide uppercase">
+          New Collection 2026
+        </p>
 
-        {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1 }}
-          className="flex flex-col sm:flex-row gap-4"
-        >
-          <Link
-            to="/products"
-            className="bg-orange-500 px-6 py-3 rounded-lg font-semibold 
-                       hover:bg-orange-600 transition duration-300 shadow-lg text-white"
+        <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
+          Elevate Your <br /> Game Today
+        </h1>
+
+        <p className="text-gray-200 max-w-xl mb-8 text-lg">
+          Discover premium sports gear designed for performance, comfort, 
+          and style. Trusted by athletes across India.
+        </p>
+
+        {/* BUTTONS */}
+        <div className="flex gap-4 flex-wrap">
+
+          {/* PRIMARY BUTTON */}
+          <button
+            onClick={() => navigate("/categories")}
+            className="bg-yellow-500 text-black px-8 py-3 rounded-lg font-semibold 
+            hover:bg-yellow-400 transition duration-300 shadow-lg hover:scale-105"
           >
             Shop Now
-          </Link>
+          </button>
 
-          <Link
-            to="/categories"
-            className="bg-white text-black px-6 py-3 rounded-lg font-semibold 
-                       hover:bg-gray-200 transition duration-300 shadow-lg"
+          {/* SECONDARY BUTTON */}
+          <button
+            onClick={() => navigate("/about")}
+            className="border border-white text-white px-8 py-3 rounded-lg font-semibold 
+            hover:bg-white hover:text-black transition duration-300 hover:scale-105"
           >
-            Categories
-          </Link>
-        </motion.div>
+            Learn More
+          </button>
 
+        </div>
       </div>
     </div>
   );

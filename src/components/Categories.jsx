@@ -1,32 +1,44 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Categories.css";
 
-import tshirt from "../assets/products/tshirt.jpg";
-import shorts from "../assets/products/shorts.jpg";
-import shoe from "../assets/products/shoe.jpg";
-import jogger from "../assets/products/jogger.jpg";
-import trophy from "../assets/products/trophy.jpg";
-import printshirt from "../assets/products/printshirt.jpg";
+import cricket from "../assets/products/cricket.png";
+import team from "../assets/products/team.png";
+import athletics from "../assets/products/athletics.png";
+import boxing from "../assets/products/boxing.png";
+import fitness from "../assets/products/fitness.png";
+import training from "../assets/products/training.png";
+import indoor from "../assets/products/indoor.png";
+import accessories from "../assets/products/accessories.png";
 
 function Categories() {
+  const navigate = useNavigate();
+
   const categories = [
-    { name: "T-Shirts", image: tshirt },
-    { name: "Shorts", image: shorts },
-    { name: "Shoes", image: shoe },
-    { name: "Joggers", image: jogger },
-    { name: "Awards & Trophies", image: trophy },
-    { name: "Custom Printing", image: printshirt },
+    { name: "Cricket", image: cricket },
+    { name: "Team sports", image: team },
+    { name: "Athletics", image: athletics },
+    { name: "Boxing", image: boxing },
+    { name: "Fitness", image: fitness },
+    { name: "Training", image: training },
+    { name: "Indoor Games", image: indoor },
+    { name: "Accessories", image: accessories },
   ];
 
   return (
     <div className="categories-page">
 
-
       <h1 className="categories-title">Shop by Category</h1>
 
       <div className="categories-grid">
         {categories.map((category, index) => (
-          <div className="category-card" key={index}>
+          <div
+            className="category-card"
+            key={index}
+            onClick={() =>
+              navigate(`/category/${category.name.toLowerCase().replace(/\s+/g, "-")}`)
+            }
+          >
             <img src={category.image} alt={category.name} />
 
             <div className="category-overlay">
@@ -41,4 +53,3 @@ function Categories() {
 }
 
 export default Categories;
-

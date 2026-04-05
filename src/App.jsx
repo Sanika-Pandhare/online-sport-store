@@ -10,71 +10,51 @@ import ContactPage from "./pages/ContactPage";
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
 import Cart from "./pages/Cart";
-
-import Categories from "./components/Categories";   // ✅ ADD THIS
+import Categories from "./components/Categories";
 
 /* ADMIN IMPORTS */
 import AdminLogin from "./admin/AdminLogin";
 import AdminDashboard from "./admin/AdminDashboard";
 import AddProduct from "./admin/AddProduct";
-//import CategoryPage from "./components/CategoryPage";
-
-<div className="bg-red-500 text-white p-10 text-center">
-  Tailwind Test
-</div>
-
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
 
-      {/* 🔹 HEADER */}
+      {/* HEADER */}
       <Header />
 
-      {/* 🔹 ROUTES */}
+      {/* ROUTES */}
       <Routes>
-
-        {/* USER ROUTES */}
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/contact" element={<ContactPage />} />
-
-
-        {/* MAIN PAGES */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactPage />} />
 
         {/* AUTH */}
-
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
 
         {/* CART */}
         <Route path="/cart" element={<Cart />} />
 
-
-        {/* ✅ CATEGORY PAGE */}
+        {/* CATEGORY */}
         <Route path="/categories" element={<Categories />} />
+        <Route path="/category/:categoryName" element={<CategoryPage />} />
 
-        {/* ADMIN ROUTES */}
+        {/* SEARCH */}
+        <Route path="/search" element={<SearchResultsPage />} />
+
+        {/* ADMIN */}
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/add-product" element={<AddProduct />} />
 
-        {/* ✅ CATEGORY PAGE (IMPROVED ROUTE) */}
-        
-        <Route path="/category/:categoryName" element={<CategoryPage />} />
-
-        {/* OPTIONAL FALLBACK */}
+        {/* FALLBACK */}
         <Route path="*" element={<Home />} />
-        <Route path="/search" element={<SearchResultsPage />} />
-
-
       </Routes>
 
-      {/* 🔹 FOOTER */}
+      {/* FOOTER */}
       <Footer />
     </Router>
   );

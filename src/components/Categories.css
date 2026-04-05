@@ -1,5 +1,11 @@
+/* * {
+  background-color: transparent !important;
+} */
+
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .categories-page {
@@ -22,14 +28,24 @@
   gap: 35px;
 }
 
+/* CARD */
 .category-card {
-  background: #ffffff;
+  background: #ffffff; /* force white */
   border-radius: 12px;
   overflow: hidden;
   text-align: center;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* REMOVE ANY GREEN ON HOVER */
+.category-card:hover {
+  transform: translateY(-5px);
+  background: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* IMAGE */
 .category-card img {
   width: 100%;
   height: 260px;
@@ -37,13 +53,14 @@
   display: block;
 }
 
+/* TEXT AREA */
 .category-overlay {
   padding: 18px;
+  background: #ffffff; /* ensure no color leak */
 }
 
 .category-overlay h2 {
   font-size: 20px;
   font-weight: 600;
   color: #1f2a44;
-  margin: 0;
 }
